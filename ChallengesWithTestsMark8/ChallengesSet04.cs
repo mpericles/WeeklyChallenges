@@ -143,14 +143,21 @@ namespace ChallengesWithTestsMark8
         public int Factorial(int number)
         {
             // Need help - 3 test can't pass
-            if (number == 0)
+            if (number < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            if (number ==1 || number == 0)
             {
                 return 1; // Base case: factorial of 0 is 1
             }
-            else
+            if (number >= 2)
             {
-                return number * Factorial(number - 1); // Recursive case: factorial of n is n * factorial of (n-1)
+                var factorial = number  * Factorial(number - 1);
+                return factorial; // Recursive case: factorial of n is n * factorial of (n-1)
             }
+            return 0;
         }
     }
 }
